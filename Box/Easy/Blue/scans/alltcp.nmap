@@ -1,0 +1,17 @@
+# Nmap 7.94 scan initiated Sun Jan 28 17:02:11 2024 as: nmap -sT -p- --min-rate 10000 -oA scans/alltcp 10.129.6.162
+Warning: 10.129.6.162 giving up on port because retransmission cap hit (10).
+Nmap scan report for 10.129.6.162
+Host is up (0.19s latency).
+Not shown: 65335 closed tcp ports (conn-refused), 191 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+49152/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49155/tcp open  unknown
+49156/tcp open  unknown
+49157/tcp open  unknown
+
+# Nmap done at Sun Jan 28 17:57:45 2024 -- 1 IP address (1 host up) scanned in 3334.59 seconds

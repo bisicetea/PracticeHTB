@@ -1,0 +1,4 @@
+# Nmap 7.94 scan initiated Sun Jan 28 17:02:11 2024 as: nmap -sT -p- --min-rate 10000 -oA scans/alltcp 10.129.6.162
+Host: 10.129.6.162 ()	Status: Up
+Host: 10.129.6.162 ()	Ports: 135/open/tcp//msrpc///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///, 49152/open/tcp/////, 49153/open/tcp/////, 49154/open/tcp/////, 49155/open/tcp/////, 49156/open/tcp/////, 49157/open/tcp/////
+# Nmap done at Sun Jan 28 17:57:45 2024 -- 1 IP address (1 host up) scanned in 3334.59 seconds
