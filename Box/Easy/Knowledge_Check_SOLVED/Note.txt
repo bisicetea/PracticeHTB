@@ -1,0 +1,13 @@
+--- Folder ---
+/backups
+/data
+/plugins
+
+--- Endpoint ---
+robots.txt
+sitemap.xml
+
+--- Account ---
+email: admin@gettingstarted.com
+username: admin
+password: admin

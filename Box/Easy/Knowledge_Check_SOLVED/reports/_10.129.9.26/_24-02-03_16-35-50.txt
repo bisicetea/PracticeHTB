@@ -1,0 +1,38 @@
+# Dirsearch started Sat Feb  3 16:38:22 2024 as: /Users/nhantv/Library/Python/3.9/bin/dirsearch -u 10.129.9.26
+
+403   276B   http://10.129.9.26/.ht_wsr.txt
+403   276B   http://10.129.9.26/.htaccess.bak1
+403   276B   http://10.129.9.26/.htaccess.save
+403   276B   http://10.129.9.26/.htaccess.sample
+403   276B   http://10.129.9.26/.htaccess.orig
+403   276B   http://10.129.9.26/.htaccess_extra
+403   276B   http://10.129.9.26/.htaccess_sc
+403   276B   http://10.129.9.26/.htaccessBAK
+403   276B   http://10.129.9.26/.htaccess_orig
+403   276B   http://10.129.9.26/.htaccessOLD
+403   276B   http://10.129.9.26/.htaccessOLD2
+403   276B   http://10.129.9.26/.html
+403   276B   http://10.129.9.26/.htm
+403   276B   http://10.129.9.26/.htpasswd_test
+403   276B   http://10.129.9.26/.htpasswds
+403   276B   http://10.129.9.26/.httr-oauth
+403   276B   http://10.129.9.26/.php
+301   310B   http://10.129.9.26/admin    -> REDIRECTS TO: http://10.129.9.26/admin/
+200     1KB  http://10.129.9.26/admin/
+302     0B   http://10.129.9.26/admin/download.php    -> REDIRECTS TO: index.php?redirect=download.php?
+200     1KB  http://10.129.9.26/admin/index.php
+302     0B   http://10.129.9.26/admin/upload.php    -> REDIRECTS TO: index.php?redirect=upload.php?
+301   312B   http://10.129.9.26/backups    -> REDIRECTS TO: http://10.129.9.26/backups/
+200   484B   http://10.129.9.26/backups/
+301   309B   http://10.129.9.26/data    -> REDIRECTS TO: http://10.129.9.26/data/
+200   509B   http://10.129.9.26/data/cache/
+200   528B   http://10.129.9.26/data/
+200    12KB  http://10.129.9.26/LICENSE.txt
+200   520B   http://10.129.9.26/plugins/
+301   312B   http://10.129.9.26/plugins    -> REDIRECTS TO: http://10.129.9.26/plugins/
+200   889B   http://10.129.9.26/readme.txt
+200    32B   http://10.129.9.26/robots.txt
+403   276B   http://10.129.9.26/server-status
+403   276B   http://10.129.9.26/server-status/
+200   257B   http://10.129.9.26/sitemap.xml
+301   310B   http://10.129.9.26/theme    -> REDIRECTS TO: http://10.129.9.26/theme/
