@@ -1,0 +1,11 @@
+Title:
+Juggling facts
+
+Description:
+An organization seems to possess knowledge of the true nature of pumpkins. Can you find out what they honestly know and uncover this centuries-long secret once and for all?
+
+Address:
+94.237.54.75:39721
+
+Reference:
+https://www.php.net/manual/en/types.comparisons.php
